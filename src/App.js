@@ -1,18 +1,19 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Toolbar from './components/Navigation/Toolbar/Toolbar';
-import CostBasisCalculator from './containers/CostBasisCalculator/CostBasisCalculator';
-import About from './containers/About/About';
+import Layout from './hoc/Layout/Layout';
+import CostBasisCalculator from './pages/CostBasisCalculator/CostBasisCalculator';
+import About from './pages/About/About';
 
 function App() {
   return (
     <div>
-      <Toolbar/>
-      <Switch>
-        <Route path="/" exact component={CostBasisCalculator} />
-        <Route path="/about" exact component={About} />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/" exact component={CostBasisCalculator} />
+          <Route path="/about" exact component={About} />
+        </Switch>
+      </Layout>
     </div>
   );
 }
