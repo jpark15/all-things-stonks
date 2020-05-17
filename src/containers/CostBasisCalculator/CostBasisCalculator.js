@@ -1,9 +1,9 @@
 import React from 'react';
 
 const costBasisCalculator = () => (
-  <p style={{marginTop: '60px', textAlign: 'center'}}>
+  <h3 style={{marginTop: '80px', textAlign: 'center'}}>
     Cost Basis Calculator Coming Soon...
-  </p>
+  </h3>
 );
 
 export default costBasisCalculator;
