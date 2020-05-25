@@ -3,12 +3,21 @@ import React, { Component } from 'react';
 import classes from './CurrentPosition.module.css';
 
 class CurrentPosition extends Component {
+  calculateEquity = () => {
+    let equity = null;
+    if (this.props.numberOfShares !== '' && this.props.averageCost !== '') {
+      equity = (Number(this.props.numberOfShares) * Number(this.props.averageCost)).toFixed(2);
+    }
+    return equity;
+  }
+
   render () {
-    let currentPosition = null
-    if (this.props.equity !== null) {
+    let currentPosition = null;
+    const equity = this.calculateEquity();
+    if (equity !== null) {
       currentPosition = <p>
         Total Equity: $<strong>
-          {this.props.equity}
+          {equity}
         </strong>
       </p>
     }
