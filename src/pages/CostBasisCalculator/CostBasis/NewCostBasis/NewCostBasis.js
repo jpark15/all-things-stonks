@@ -31,7 +31,7 @@ class NewCostBasis extends Component {
     let tempState = { ...this.state }
 
     const inputFieldName = event.target.name;
-    const newValue = event.target.value;
+    const newValue = event.target.value.trim();
     if (!isNaN(Number(newValue))) {
       tempState[inputFieldName] = newValue;
     }
