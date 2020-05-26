@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
-import CostBasisCalculator from './pages/Home/Home';
+import Home from './pages/Home/Home';
 import About from './pages/About/About';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <div>
       <Layout>
         <Switch>
-          <Route path="/" exact component={CostBasisCalculator} />
+          <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
         </Switch>
       </Layout>

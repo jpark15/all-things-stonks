@@ -31,14 +31,14 @@
 .Position p {
   color: #008055;
   margin: auto;
-  padding-top: 10px;
+  padding-bottom: 20px;
   text-align: center;
 }
 
 .Position button {
   display: block;
-  width: 10%;
   margin: auto;
+  width: fit-content;
 }
 
 @media (min-width: 800px) {
