@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
-import CostBasisCalculator from './pages/CostBasisCalculator/CostBasisCalculator';
+import CostBasisCalculator from './pages/Home/Home';
 import About from './pages/About/About';
 
 function App() {

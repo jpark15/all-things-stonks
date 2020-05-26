@@ -5,8 +5,8 @@ import classes from './CurrentPosition.module.css';
 class CurrentPosition extends Component {
   calculateEquity = () => {
     let equity = null;
-    if (this.props.numberOfShares !== '' && this.props.averageCost !== '') {
-      equity = (Number(this.props.numberOfShares) * Number(this.props.averageCost)).toFixed(2);
+    if (this.props.position.numberOfShares !== '' && this.props.position.averageCost !== '') {
+      equity = (Number(this.props.position.numberOfShares) * Number(this.props.position.averageCost)).toFixed(2);
     }
     return equity;
   }
@@ -16,7 +16,7 @@ class CurrentPosition extends Component {
     const equity = this.calculateEquity();
     if (equity !== null) {
       currentPosition = <p>
-        Total Equity: $<strong>
+        Invested Total: $<strong>
           {equity}
         </strong>
       </p>
@@ -29,15 +29,18 @@ class CurrentPosition extends Component {
         <input
           name="numberOfShares"
           type="text"
-          onChange={(event) => this.props.changeHandler(event)}
-          value={this.props.numberOfShares} />
+          onChange={(event) => this.props.changeHandler(event, 'position')}
+          value={this.props.position.numberOfShares} />
         <label>Average Cost:</label>
         <input
           name="averageCost"
           type="text"
-          onChange={(event) => this.props.changeHandler(event)}
-          value={this.props.averageCost} />
+          onChange={(event) => this.props.changeHandler(event, 'position')}
+          value={this.props.position.averageCost} />
         {currentPosition}
+        <button onClick={(event) => this.props.clearHandler(event, 'position')}>
+          Reset
+        </button>
       </div>
     );
   }

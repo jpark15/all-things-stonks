@@ -7,7 +7,7 @@ import classes from './CostBasis.module.css';
 class CostBasis extends Component {
   render () {
     let disabled = true;
-    if (this.props.numberOfShares !== '' && this.props.averageCost !== '') {
+    if (this.props.position.numberOfShares !== '' && this.props.position.averageCost !== '') {
       disabled = false;
     }
 
@@ -15,12 +15,16 @@ class CostBasis extends Component {
       <div className={classes.CostBasis}>
         <h2>Cost Basis</h2>
         <NewCostBasis
-          numberOfShares={this.props.numberOfShares}
-          averageCost={this.props.averageCost}
+          position={this.props.position}
+          newCostBasis={this.props.newCostBasis}
+          changeHandler={this.props.changeHandler}
+          clearHandler={this.props.clearHandler}
           disabled={disabled} />
         <DesiredCostBasis
-          numberOfShares={this.props.numberOfShares}
-          averageCost={this.props.averageCost}
+          position={this.props.position}
+          desiredCostBasis={this.props.desiredCostBasis}
+          changeHandler={this.props.changeHandler}
+          clearHandler={this.props.clearHandler}
           disabled={disabled} />
       </div>
     );

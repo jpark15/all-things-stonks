@@ -1,0 +1,9 @@
+.DesiredCostBasis p {
+  color: #008055;
+}
+
+.DesiredCostBasis button {
+  display: block;
+  margin: auto;
+  width: 10%;
+}

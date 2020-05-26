@@ -9,30 +9,18 @@ class DesiredCostBasis extends Component {
   }
 
   calculateSharePrice = () => {
-    const currentShares = Number(this.props.numberOfShares);
-    const currentEquity = currentShares * Number(this.props.averageCost);
+    const currentShares = Number(this.props.position.numberOfShares);
+    const currentEquity = currentShares * Number(this.props.position.averageCost);
 
     let desiredPrice = null;
-    if (this.state.desiredCostBasis !== '' && this.state.sharesToAdd !== '' && Number(this.state.sharesToAdd) !== 0) {
-      const desiredCostBasis = Number(this.state.desiredCostBasis);
-      const sharesToAdd = Number(this.state.sharesToAdd);
+    if (this.props.desiredCostBasis.desiredCostBasis !== '' && this.props.desiredCostBasis.sharesToAdd !== '' && Number(this.props.desiredCostBasis.sharesToAdd) !== 0) {
+      const desiredCostBasis = Number(this.props.desiredCostBasis.desiredCostBasis);
+      const sharesToAdd = Number(this.props.desiredCostBasis.sharesToAdd);
       const totalEquity = desiredCostBasis * (currentShares + sharesToAdd)
       desiredPrice = ((totalEquity - currentEquity)/sharesToAdd).toFixed(2);
     }
 
     return desiredPrice;
-  }
-
-  inputHandler = (event) => {
-    let tempState = { ...this.state }
-
-    const inputFieldName = event.target.name;
-    const newValue = event.target.value.trim();
-    if (!isNaN(Number(newValue))) {
-      tempState[inputFieldName] = newValue;
-    }
-
-    this.setState(tempState);
   }
 
   render () {
@@ -55,17 +43,20 @@ class DesiredCostBasis extends Component {
         <input
           name="desiredCostBasis"
           type="text"
-          onChange={(event) => this.inputHandler(event)}
-          value={this.state.desiredCostBasis}
+          onChange={(event) => this.props.changeHandler(event, 'desiredCostBasis')}
+          value={this.props.desiredCostBasis.desiredCostBasis}
           disabled={this.props.disabled} />
         <label>Shares to Add:</label>
         <input
           name="sharesToAdd"
           type="text"
-          onChange={(event) => this.inputHandler(event)}
-          value={this.state.sharesToAdd}
+          onChange={(event) => this.props.changeHandler(event, 'desiredCostBasis')}
+          value={this.props.desiredCostBasis.sharesToAdd}
           disabled={this.props.disabled} />
         {sharePriceMessage}
+        <button onClick={(event) => this.props.clearHandler(event, 'desiredCostBasis')}>
+          Clear
+        </button>
       </div>
     );
   }

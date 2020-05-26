@@ -1,0 +1,11 @@
+.NewCostBasis p {
+  color: #008055;
+  padding-bottom: 35px;
+}
+
+.NewCostBasis button {
+  display: block;
+  margin-bottom: 30px;
+  margin: auto;
+  width: 10%;
+}
