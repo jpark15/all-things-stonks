@@ -3,11 +3,6 @@ import React, { Component } from 'react';
 import classes from './DesiredCostBasis.module.css';
 
 class DesiredCostBasis extends Component {
-  state = {
-    desiredCostBasis: '',
-    sharesToAdd: '',
-  }
-
   calculateSharePrice = () => {
     const currentShares = Number(this.props.position.numberOfShares);
     const currentEquity = currentShares * Number(this.props.position.averageCost);
@@ -27,13 +22,19 @@ class DesiredCostBasis extends Component {
     const desiredPrice = this.calculateSharePrice();
     let sharePriceMessage = null;
     if (desiredPrice !== null) {
-      sharePriceMessage = <p>
-        Add <strong>
-          {this.state.sharesToAdd}
-        </strong> shares at a max price of $<strong>
-          {desiredPrice}
-        </strong> to stay below the desired cost basis
-      </p>
+      if (desiredPrice <= 0) {
+        sharePriceMessage = <p style={{ color: "red" }}>
+          Desired cost basis is not achievable.
+        </p>
+      } else {
+        sharePriceMessage = <p>
+          Add <strong>
+            {this.props.desiredCostBasis.sharesToAdd}
+          </strong> shares at a max price of $<strong>
+            {desiredPrice}
+          </strong> to stay below the desired cost basis
+        </p>
+      }
     }
 
     return (
