@@ -1,5 +1,12 @@
-.About {
-  margin-top: 80px;
-  width: auto;
-  text-align: center;
+.Section {
+  margin: auto;
+  text-align: left;
+  width: 50%;
+}
+
+.Section ul, li {
+  font-style: italic;
+  margin: auto;
+  text-align: left;
+  width: 100%;
 }
