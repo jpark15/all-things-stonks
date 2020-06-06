@@ -7,6 +7,7 @@ import CostBasis from './CostBasis/CostBasis';
 class Home extends Component {
   state = {
     position: {
+      ticker: '',
       numberOfShares: '',
       averageCost: '',
     },
@@ -25,9 +26,13 @@ class Home extends Component {
     let tempSection = { ...tempState[section] }
 
     const inputFieldName = event.target.name;
-    const newValue = event.target.value.trim();
-    if (!isNaN(Number(newValue))) {
-      tempSection[inputFieldName] = newValue;
+    const value = event.target.value.trim();
+
+    if (inputFieldName === 'ticker') {
+      let ticker = value.replace(/[^a-z0-9]/gi, '')
+      tempSection[inputFieldName] = ticker.toUpperCase();
+    } else if (!isNaN(Number(value))) {
+      tempSection[inputFieldName] = value;
     }
 
     tempState[section] = tempSection;

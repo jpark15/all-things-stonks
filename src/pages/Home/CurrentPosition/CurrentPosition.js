@@ -25,6 +25,12 @@ class CurrentPosition extends Component {
     return (
       <div className={classes.Position}>
         <h2>Current Position</h2>
+        <label>Ticker Symbol:</label>
+        <input
+          name="ticker"
+          type="text"
+          onChange={(event) => this.props.changeHandler(event, 'position')}
+          value={this.props.position.ticker} />
         <label>Number of Shares:</label>
         <input
           name="numberOfShares"
