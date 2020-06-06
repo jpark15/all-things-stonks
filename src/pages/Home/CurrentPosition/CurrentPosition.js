@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import classes from './CurrentPosition.module.css';
+import { DebounceInput } from 'react-debounce-input';
 
 class CurrentPosition extends Component {
   calculateEquity = () => {
@@ -14,19 +15,33 @@ class CurrentPosition extends Component {
   render () {
     let currentPosition = null;
     const equity = this.calculateEquity();
-    if (equity !== null) {
-      currentPosition = <p>
-        Invested Total: $<strong>
-          {equity}
-        </strong>
-      </p>
+    if (equity !== null && this.props.position.lastClose !== null) {
+      currentPosition = <div>
+        <p>
+          Total Invested: $<strong>
+            {equity}
+          </strong>
+        </p>
+        <p>
+          Total Equity: $<strong>
+            {(Number(this.props.position.numberOfShares) * Number(this.props.position.lastClose)).toFixed(2)}
+          </strong>
+        </p>
+        <p>
+          Total Gain: $<strong>
+            {(Number(this.props.position.numberOfShares) * Number(this.props.position.lastClose)).toFixed(2) - equity}
+          </strong>
+        </p>
+      </div>
     }
 
     return (
       <div className={classes.Position}>
         <h2>Current Position</h2>
         <label>Ticker Symbol:</label>
-        <input
+        <DebounceInput
+          minLength={0}
+          debounceTimeout={500}
           name="ticker"
           type="text"
           onChange={(event) => this.props.changeHandler(event, 'position')}
