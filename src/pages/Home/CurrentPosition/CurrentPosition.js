@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import classes from './CurrentPosition.module.css';
 import { DebounceInput } from 'react-debounce-input';
+import ReactTooltip from "react-tooltip";
 
 class CurrentPosition extends Component {
   calculateEquity = () => {
@@ -39,7 +40,12 @@ class CurrentPosition extends Component {
       <div className={classes.Position}>
         <h2>Current Position</h2>
         <label>Ticker Symbol:</label>
-        <DebounceInput
+        <ReactTooltip />
+        <DebounceInput data-tip="Debounced input to help with<br />API limit of 5 requests/minute."
+          data-place="right"
+          data-type="info"
+          data-effect="solid"
+          data-multiline={true}
           minLength={0}
           debounceTimeout={500}
           name="ticker"
