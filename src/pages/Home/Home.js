@@ -5,6 +5,7 @@ import CurrentPosition from './CurrentPosition/CurrentPosition';
 import CostBasis from './CostBasis/CostBasis';
 
 const API = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&interval=5min&apikey=2KKJKFRTU1O89LPT&symbol=';
+
 class Home extends Component {
   state = {
     position: {
@@ -33,7 +34,7 @@ class Home extends Component {
 
           const lastTimestamp = Object.keys(data['Time Series (5min)'])[0];
           const stockData = data['Time Series (5min)'][lastTimestamp];
-          const stockClose = stockData['4. close'];
+          const stockClose = Number(stockData['4. close']);
 
           tempSection['lastClose'] = stockClose;
           tempState['position'] = tempSection;
@@ -41,7 +42,7 @@ class Home extends Component {
         } else {
           let tempState = { ...this.state }
           let tempSection = { ...tempState['position'] }
-          tempSection['lastClose'] = "";
+          tempSection['lastClose'] = '';
           tempState['position'] = tempSection;
           this.setState(tempState);
         };
@@ -60,7 +61,7 @@ class Home extends Component {
       tempSection[inputFieldName] = ticker.toUpperCase();
       this.fetchStockData(tempSection[inputFieldName]);
     } else if (!isNaN(Number(value))) {
-      tempSection[inputFieldName] = value;
+      tempSection[inputFieldName] = (value !== '') ? Number(value) : '';
     }
 
     tempState[section] = tempSection;
@@ -88,7 +89,6 @@ class Home extends Component {
           position={this.state.position}
           changeHandler={this.inputHandler}
           clearHandler={this.clearInputHandler} />
-        <p>Last Close is: "{this.state.position.lastClose}"</p>
         <CostBasis
           position={this.state.position}
           newCostBasis={this.state.newCostBasis}

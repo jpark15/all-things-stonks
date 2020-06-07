@@ -1,0 +1,19 @@
+.Stats {
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.Stats label, p {
+  display: block;
+  text-align: left;
+  margin: 0px auto 15px;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}

@@ -1,0 +1,19 @@
+.Form {
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.Form label {
+  display: block;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.Form input {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 50%;
+}
