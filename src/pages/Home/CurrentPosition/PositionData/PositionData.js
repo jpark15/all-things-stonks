@@ -60,10 +60,9 @@ class PositionData extends Component {
         <p>Total Invested: <strong>{this.toCurrency(totalInvested)}</strong></p>
         <p>Total Equity: <strong>{this.toCurrency(equity)}</strong></p>
         <p>Current Price: <strong>{this.toCurrency(this.props.position.lastClose)}</strong></p>
-        <p>Total Gain:
-          <strong className={colorClass}>
-            {this.toCurrency(totalReturn) + ' (' + this.toPercent(percentReturn) + ')'}
-          </strong></p>
+        <p>Gain/Loss: <strong className={colorClass}>
+          {this.toCurrency(totalReturn) + ' (' + this.toPercent(percentReturn) + ')'}
+        </strong></p>
         <ReturnEmoji percentReturn={percentReturn}/>
       </div>
     } else {
