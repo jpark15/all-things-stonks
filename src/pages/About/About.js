@@ -10,22 +10,13 @@ const about = () => (
       basis calculations for stock positions.
     </p>
     <br/>
-    <h3>Upcoming Changes</h3>
-    <p>Integrate with stock API to provide useful information.</p>
-    <ul>
-      <li>Total equity</li>
-      <li>Total return percentage</li>
-      <li>Last day stock hit desired share price.</li>
-    </ul>
-    <p>Open to suggestions!</p>
-    <br/>
     <h3>But, why?</h3>
-    <p>Build native React app.</p>
     <ul>
-      <li>Practice React, JSX, and CSS.</li>
+      <li>Build a native React app</li>
+      <li>Practice React, JSX, and HTML/CSS</li>
+      <li>Use ALPHA VANTAGE stock API</li>
+      <li>Deploy app to Heroku</li>
     </ul>
-    <p>Deploy app to Heroku.</p>
-    <p>(WIP) Integrate third-party API.</p>
   </div>
 );
 

@@ -61,7 +61,7 @@ class Home extends Component {
       tempSection[inputFieldName] = ticker.toUpperCase();
       this.fetchStockData(tempSection[inputFieldName]);
     } else if (!isNaN(Number(value))) {
-      tempSection[inputFieldName] = (value !== '') ? Number(value) : '';
+      tempSection[inputFieldName] = value;
     }
 
     tempState[section] = tempSection;
