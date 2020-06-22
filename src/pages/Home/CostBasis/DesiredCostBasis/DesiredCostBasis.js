@@ -39,7 +39,10 @@ class DesiredCostBasis extends Component {
 
     return (
       <div className={classes.DesiredCostBasis}>
-        <h6><em>Use the following to calculate the share price needed for the desired cost basis.</em></h6>
+        <h5><em>
+          Determine the maximum share price given the number of
+          <br/>shares you'd like to add and your desired cost basis.
+        </em></h5>
         <label>Desired Cost Basis:</label>
         <input
           name="desiredCostBasis"

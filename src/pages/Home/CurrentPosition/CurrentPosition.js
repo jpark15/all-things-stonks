@@ -10,12 +10,12 @@ class CurrentPosition extends Component {
       <div className={classes.Position}>
         <h2>Current Position</h2>
         <div id="outer" className={classes.container}>
-          <div id="left" className={classes.form}>
+          <div className={classes.form}>
             <CurrentPositionForm
               changeHandler={this.props.changeHandler}
               position={this.props.position}/>
           </div>
-          <div id="right" className={classes.data}>
+          <div className={classes.data}>
             <PositionData position={this.props.position}/>
           </div>
         </div>

@@ -37,7 +37,10 @@ class NewCostBasis extends Component {
 
     return (
       <div className={classes.NewCostBasis}>
-        <h6><em>Use the following to calculate a new cost basis.</em></h6>
+        <h5><em>
+          Calculate your new cost basis given the number of
+          <br/>shares you'd like to add and the share price.
+        </em></h5>
         <label>Shares to Add:</label>
         <input
           name="sharesToAdd"

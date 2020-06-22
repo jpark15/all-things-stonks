@@ -20,6 +20,7 @@ class CostBasis extends Component {
           changeHandler={this.props.changeHandler}
           clearHandler={this.props.clearHandler}
           disabled={disabled} />
+        <br/>
         <DesiredCostBasis
           position={this.props.position}
           desiredCostBasis={this.props.desiredCostBasis}

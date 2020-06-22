@@ -22,12 +22,12 @@
 
 .form {
   display: inline-flex;
-  width: 60%;
+  width: 50%;
 }
 
-.data-data {
+.data {
   display: inline-flex;
-  width: 40%;
+  width: 50%;
 }
 
 @media (min-width: 1080px) {
