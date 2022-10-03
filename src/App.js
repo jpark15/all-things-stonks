@@ -5,17 +5,20 @@ import Layout from './hoc/Layout/Layout';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 
-function App() {
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+const queryClient = new QueryClient();
+
+export default function App() {
   return (
     <div>
-      <Layout>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" exact component={About} />
-        </Switch>
-      </Layout>
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/about" exact component={About} />
+          </Switch>
+        </Layout>
+      </QueryClientProvider>
     </div>
   );
 }
-
-export default App;
