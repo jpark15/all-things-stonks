@@ -52,7 +52,7 @@ class DesiredCostBasis extends Component {
           disabled={this.props.disabled} />
         <label>Shares to Add:</label>
         <input
-          name="sharesToAdd"
+          name="desiredSharesToAdd"
           type="text"
           onChange={(event) => this.props.changeHandler(event, 'desiredCostBasis')}
           value={this.props.desiredCostBasis.sharesToAdd}

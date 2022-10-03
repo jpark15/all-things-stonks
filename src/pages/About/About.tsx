@@ -17,6 +17,12 @@ const about = () => (
       <li>Use ALPHA VANTAGE stock API</li>
       <li>Deploy app to Heroku</li>
     </ul>
+    <h3>Updates:</h3>
+    <ul>
+      <li>Convert Current Position and About sections to Typescript</li>
+      <li>Use React Hooks for state management</li>
+      <li>Use ReactQuery to fetch stock data</li>
+    </ul>
   </div>
 );
 

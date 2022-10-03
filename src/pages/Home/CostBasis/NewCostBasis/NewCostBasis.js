@@ -43,14 +43,14 @@ class NewCostBasis extends Component {
         </em></h5>
         <label>Shares to Add:</label>
         <input
-          name="sharesToAdd"
+          name="newSharesToAdd"
           type="text"
           onChange={(event) => this.props.changeHandler(event, 'newCostBasis')}
           value={this.props.newCostBasis.sharesToAdd}
           disabled={this.props.disabled} />
         <label>Share Price:</label>
         <input
-          name="sharePrice"
+          name="newSharePrice"
           type="text"
           onChange={(event) => this.props.changeHandler(event, 'newCostBasis')}
           value={this.props.newCostBasis.sharePrice}
